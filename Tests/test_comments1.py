@@ -1,8 +1,7 @@
 import pytest
-import requests
-import json
 
-class Test_comments():
+
+class TestComments:
 
     def test_headers(self, get_status_code, get_url_comments):
         resp = get_url_comments
@@ -12,11 +11,10 @@ class Test_comments():
         assert resp.headers["cache-control"] == "max-age=43200"
 
     expected = [(["postId", "id", "name", "email", "body"]),
-               (["last name", "id", "name", "gmail", "body"]),
-               (["address", "id", "", "email", "body"])]
+                (["last name", "id", "name", "gmail", "body"]),
+                (["address", "id", "", "email", "body"])]
 
     expected_ids = ["Task: " for i in expected]
-
 
     @pytest.mark.xfail()
     @pytest.mark.parametrize("expected", expected, ids=expected_ids)
@@ -26,5 +24,3 @@ class Test_comments():
         for i in range(len(response_body)):
             list_keys = list(response_body[i].keys())
             assert expected == list_keys
-
-

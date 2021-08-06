@@ -1,6 +1,6 @@
-import time
 import pytest
 import requests
+
 
 @pytest.fixture(scope='session')
 def get_url_post():
@@ -8,6 +8,7 @@ def get_url_post():
     resp = requests.get(url)
     yield resp
     print('OK!')
+
 
 @pytest.fixture(scope='session')
 def get_url_comments():
