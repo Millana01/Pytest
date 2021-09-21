@@ -7,7 +7,7 @@ def get_url_post():
     url = 'https://jsonplaceholder.typicode.com/posts/1'
     resp = requests.get(url)
     yield resp
-    print('OK!')
+    print(' OK!')
 
 
 @pytest.fixture(scope='session')
